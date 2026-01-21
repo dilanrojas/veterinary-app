@@ -1,0 +1,74 @@
+{
+  "clients": [
+    {
+      "name": "Dilan Rojas",
+      "user": "joswed",
+      "password": "dilan1010",
+      "mail": "vrojasdilan11@gmail.com",
+      "phone": "6452-0311";
+      "nextAppointment": "Sábado 25 de enero",
+      "pets": [
+        {
+          "name": "Venom",
+          "type": "dog",
+        },
+      ]
+    },
+    {
+      "name": "Josue Aparicio",
+      "user": "joswed",
+      "password": "dilan1010",
+      "mail": "vrojasdilan11@gmail.com",
+      "phone": "6452-0311";
+      "nextAppointment": "Sábado 25 de enero",
+      "pets": [
+        {
+          "name": "Venom",
+          "type": "dog",
+        },
+      ]
+    },
+    {
+      "name": "Josue Ramirez",
+      "user": "joswed",
+      "password": "dilan1010",
+      "mail": "vrojasdilan11@gmail.com",
+      "phone": "6452-0311";
+      "nextAppointment": "Sábado 25 de enero",
+      "pets": [
+        {
+          "name": "Venom",
+          "type": "dog",
+        },
+      ]
+    },
+    {
+      "name": "Jonathan Ruiz",
+      "user": "joswed",
+      "password": "dilan1010",
+      "mail": "vrojasdilan11@gmail.com",
+      "phone": "6452-0311";
+      "nextAppointment": "Sábado 25 de enero",
+      "pets": [
+        {
+          "name": "Venom",
+          "type": "dog",
+        },
+      ]
+    },
+    {
+      "name": "Brian Porras",
+      "user": "joswed",
+      "password": "dilan1010",
+      "mail": "vrojasdilan11@gmail.com",
+      "phone": "6452-0311";
+      "nextAppointment": "Sábado 25 de enero",
+      "pets": [
+        {
+          "name": "Venom",
+          "type": "dog",
+        },
+      ]
+    },
+  ]
+}

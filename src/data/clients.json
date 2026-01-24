@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "fullname": "Dilan Rojas",
+    "username": "joswed",
+    "password": "dilanjosue00",
+    "email": "joswed@gmail.com",
+    "phone": "64550312",
+    "nextAppointment": "Jueves 26 de febrero",
+    "pets": [
+      {
+        "name": "Venom",
+        "type": "dog"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "fullname": "Nombre completo",
+    "username": "nombre de usuario",
+    "password": "contraseña",
+    "email": "email@gmail.com",
+    "phone": "00000000",
+    "nextAppointment": "Jueves 26 de febrero",
+    "pets": [
+      {
+        "name": "Venom",
+        "type": "dog"
+      }
+    ]
+  }
+]

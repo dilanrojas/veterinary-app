@@ -11,20 +11,73 @@
       {
         "name": "Venom",
         "type": "dog"
+      },
+      {
+        "name": "Moon",
+        "type": "cat"
       }
     ]
   },
   {
     "id": 2,
-    "fullname": "Nombre completo",
-    "username": "nombre de usuario",
-    "password": "contraseña",
-    "email": "email@gmail.com",
-    "phone": "00000000",
-    "nextAppointment": "Jueves 26 de febrero",
+    "fullname": "Josué Ramirez",
+    "username": "josue",
+    "password": "josue1234",
+    "email": "josueramirez@gmail.com",
+    "phone": "64645252",
+    "nextAppointment": "Miércoles 12 de febrero",
     "pets": [
       {
-        "name": "Venom",
+        "name": "Ponky",
+        "type": "dog"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "fullname": "Josué Aparicio",
+    "username": "joske",
+    "password": "josue0905",
+    "email": "josueaparicio@gmail.com",
+    "phone": "878763464",
+    "nextAppointment": "Miércoles 12 de febrero",
+    "pets": [
+      {
+        "name": "Max",
+        "type": "dog"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "fullname": "Brian Porras",
+    "username": "brian",
+    "password": "brian123",
+    "email": "brianporras@gmail.com",
+    "phone": "878763464",
+    "nextAppointment": "Viernes 26 de febrero",
+    "pets": [
+      {
+        "name": "Tobby",
+        "type": "dog"
+      },
+      {
+        "name": "Michie",
+        "type": "cat"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "fullname": "Jonathan Ruiz",
+    "username": "jonny",
+    "password": "jonathan123",
+    "email": "jonathanruiz@gmail.com",
+    "phone": "76723039",
+    "nextAppointment": "Martes 24 de febrero",
+    "pets": [
+      {
+        "name": "Vela",
         "type": "dog"
       }
     ]

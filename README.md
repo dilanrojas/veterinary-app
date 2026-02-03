@@ -184,4 +184,5 @@ git checkout main
 git pull origin main
 git checkout feature/nombre
 git merge main
+git push --force
 ```

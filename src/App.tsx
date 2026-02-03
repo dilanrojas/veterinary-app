@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import ClientProfile from './pages/ClientProfile';
 import PetList from './pages/PetList';
 import PetProfile from './pages/PetProfile';
+import Auth from './pages/Auth';
 import RootLayout from './layouts/RootLayout/RootLayout';
 
 export default function App() {
@@ -15,9 +16,10 @@ export default function App() {
           <Route path='/petlist' element={<PetList />} />
           <Route path='/clientprofile' element={<ClientProfile />} />
           <Route path='/petprofile' element={<PetProfile />} />
+          <Route path='/' element={<Welcome />} />
         </Route>
 
-        <Route path='/' element={<Welcome />} />
+        <Route path='/auth' element={<Auth />} />
       </Routes>
     </>
   )

@@ -138,6 +138,24 @@ export default function UsageExample() {
 
 ```
 
+## Historias | Jira
+
+#### Josue Aparicio
+- Autenticación
+
+#### Josue Ramirez
+- Página Pet List
+
+#### Jonathan Ruiz
+- Página Inicio
+- Página Home
+
+#### Brian Porras
+
+#### Dilan Rojas
+- Registro de mascotas
+- Navegación General de la Aplicación
+
 ### Comandos Git necesarios
 
 #### Cambiar a tu branch

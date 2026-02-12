@@ -1,22 +1,24 @@
-import type { Client } from "../lib/types";
+import type { Client, Pet } from "../lib/types";
 
-const CLIENTS_URL = '../data/clients.json';
+const CLIENTS_URL = '/data/clients.json'; 
 
 export async function getClients(): Promise<Client[]> {
   const response = await fetch(CLIENTS_URL);
 
-  if (!response) {
-    throw new Error(`Error while trying to read file: ${response}`)
+  if (!response.ok) {
+    throw new Error(`Failed to fetch clients: ${response.statusText}`);
   }
 
-  const data = await response.json();
-  return data;
+  return await response.json();
 }
 
-export async function getClientById(id: number): Promise<Client | null> {
+export async function getPetById(petId: number | string): Promise<Pet | null> {
   const clients = await getClients();
 
-  const found = clients.find(client => client.id === id);
+  for (const client of clients) {
+    const foundPet = client.pets.find((pet: Pet) => pet.id === petId);
+    if (foundPet) return foundPet;
+  }
 
-  return found ?? null;
+  return null;
 }

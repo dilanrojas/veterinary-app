@@ -1,0 +1,142 @@
+[
+  {
+    "id": 1,
+    "fullname": "Dilan Rojas",
+    "username": "joswed",
+    "password": "dilanjosue00",
+    "email": "joswed@gmail.com",
+    "phone": "64550312",
+    "nextAppointment": "Jueves 26 de febrero",
+    "pets": [
+      {
+        "id": 101,
+        "name": "Venom",
+        "type": "dog"
+      },
+      {
+        "id": 102,
+        "name": "Moon",
+        "type": "cat"
+      },
+      {
+        "id": 103,
+        "name": "Rocky",
+        "type": "dog"
+      },
+      {
+        "id": 104,
+        "name": "Luna",
+        "type": "rabbit"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "fullname": "Josué Ramirez",
+    "username": "josue",
+    "password": "josue1234",
+    "email": "josueramirez@gmail.com",
+    "phone": "64645252",
+    "nextAppointment": "Miércoles 12 de febrero",
+    "pets": [
+      {
+        "id": 201,
+        "name": "Ponky",
+        "type": "dog"
+      },
+      {
+        "id": 202,
+        "name": "Milo",
+        "type": "cat"
+      },
+      {
+        "id": 203,
+        "name": "Nemo",
+        "type": "fish"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "fullname": "Josué Aparicio",
+    "username": "joske",
+    "password": "josue0905",
+    "email": "josueaparicio@gmail.com",
+    "phone": "878763464",
+    "nextAppointment": "Miércoles 12 de febrero",
+    "pets": [
+      {
+        "id": 301,
+        "name": "Max",
+        "type": "dog"
+      },
+      {
+        "id": 302,
+        "name": "Bella",
+        "type": "cat"
+      },
+      {
+        "id": 303,
+        "name": "Kiwi",
+        "type": "bird"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "fullname": "Brian Porras",
+    "username": "brian",
+    "password": "brian123",
+    "email": "brianporras@gmail.com",
+    "phone": "878763464",
+    "nextAppointment": "Viernes 26 de febrero",
+    "pets": [
+      {
+        "id": 401,
+        "name": "Tobby",
+        "type": "dog"
+      },
+      {
+        "id": 402,
+        "name": "Michie",
+        "type": "cat"
+      },
+      {
+        "id": 403,
+        "name": "Thor",
+        "type": "dog"
+      },
+      {
+        "id": 404,
+        "name": "Nina",
+        "type": "hamster"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "fullname": "Jonathan Ruiz",
+    "username": "jonny",
+    "password": "jonathan123",
+    "email": "jonathanruiz@gmail.com",
+    "phone": "76723039",
+    "nextAppointment": "Martes 24 de febrero",
+    "pets": [
+      {
+        "id": 501,
+        "name": "Vela",
+        "type": "dog"
+      },
+      {
+        "id": 502,
+        "name": "Simba",
+        "type": "cat"
+      },
+      {
+        "id": 503,
+        "name": "Coco",
+        "type": "parrot"
+      }
+    ]
+  }
+]

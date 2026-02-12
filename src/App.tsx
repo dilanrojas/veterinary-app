@@ -5,7 +5,7 @@ import ClientProfile from "./pages/ClientProfile";
 import PetList from "./pages/PetList";
 import PetProfile from "./pages/PetProfile";
 import AuthLogin from "./pages/AuthLogin";
-import RootLayout from "./layouts/RootLayout/RootLayout";
+import RootLayout from "./layouts/RootLayout";
 
 export default function App() {
   return (
@@ -17,7 +17,6 @@ export default function App() {
           <Route path="/clientprofile" element={<ClientProfile />} />
           <Route path="/petprofile/:id" element={<PetProfile />} />
           <Route path="/" element={<Welcome />} />
-
         </Route>
 
         <Route path="/authlogin" element={<AuthLogin />} />

@@ -1,6 +1,6 @@
 import type { Client, Pet } from "../lib/types";
 
-const CLIENTS_URL = '/data/clients.json'; 
+const CLIENTS_URL = '/data/clients.json';
 
 export async function getClients(): Promise<Client[]> {
   const response = await fetch(CLIENTS_URL);

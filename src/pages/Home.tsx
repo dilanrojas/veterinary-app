@@ -50,13 +50,10 @@ const Home = () => {
                   </span>
                 </div>
                 <div className="flex flex-col">
-                  <p className="text-2xl font-bold">In 2 days</p>
+                  <p className="text-2xl font-bold">{user?.nextAppointment}</p>
                   <p className="text-sm font-medium text-[#111813] dark:text-gray-300">
-                    {user?.pets[0].name}
+                    {user?.pets[0].name} - Annual review
                   </p>
-                </div>
-                <div className="mt-2 inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-primary/20 text-[#111813] dark:text-primary w-fit">
-                  {user?.nextAppointment}
                 </div>
               </div>
 

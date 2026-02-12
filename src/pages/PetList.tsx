@@ -5,7 +5,7 @@ export default function PetList() {
   const { user } = UseUser();
 
   if (!user) {
-    return <div className="p-10 text-center dark:text-white">Cargando datos del usuario...</div>;
+    return <div className="p-10 text-center dark:text-white">Loading user data...</div>;
   }
 
   return (
@@ -19,15 +19,15 @@ export default function PetList() {
               <div className="flex flex-wrap items-end justify-between gap-4 p-4 mb-4">
                 <div className="flex min-w-72 flex-col gap-2">
                   <h1 className="text-[#111813] dark:text-white text-4xl font-black leading-tight tracking-tight">
-                    Mis Mascotas
+                    My Pets
                   </h1>
                   <p className="text-[#61896f] dark:text-emerald-500/80 text-base font-normal">
-                    ¡Hola, {user.fullname}! Tienes {user.pets?.length} mascotas registrados.
+                    Hello, {user.fullname}! You have {user.pets?.length} registered {user.pets?.length === 1 ? 'pet' : 'pets'}.
                   </p>
                 </div>
               </div>
 
-              {/*Tarjetas de Mascotas */}
+              {/* Pet Cards */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 p-4">
                 {user.pets?.map((pet) => (
                   <div key={pet.id} className="flex flex-col overflow-hidden rounded-xl bg-white dark:bg-emerald-900/10 border border-[#dbe6df] dark:border-emerald-900/30 hover:shadow-xl transition-all group cursor-pointer">
@@ -50,13 +50,13 @@ export default function PetList() {
                       <div className="flex items-center gap-2 py-2 px-3 rounded-lg bg-gray-50 dark:bg-background-dark/50">
                         <span className="material-symbols-outlined text-emerald-600 text-sm">calendar_month</span>
                         <p className="text-[#111813] dark:text-gray-300 text-xs font-semibold">
-                          Cita: {user.nextAppointment}
+                          Appt: {user.nextAppointment}
                         </p>
                       </div>
                       <Link to={`/petprofile/${pet.id}`} >
-                      <button className="mt-2 flex w-full items-center justify-center gap-2 rounded-lg bg-emerald-500 py-2.5 text-sm font-bold text-white hover:bg-emerald-600 transition-all">
-                        Ver Detalles
-                      </button>
+                        <button className="mt-2 flex w-full items-center justify-center gap-2 rounded-lg bg-emerald-500 py-2.5 text-sm font-bold text-white hover:bg-emerald-600 transition-all">
+                          View Details
+                        </button>
                       </Link>
                     </div>
                   </div>

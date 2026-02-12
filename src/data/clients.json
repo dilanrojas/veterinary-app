@@ -8,14 +8,10 @@
     "phone": "64550312",
     "nextAppointment": "Jueves 26 de febrero",
     "pets": [
-      {
-        "name": "Venom",
-        "type": "dog"
-      },
-      {
-        "name": "Moon",
-        "type": "cat"
-      }
+      { "name": "Venom", "type": "dog" },
+      { "name": "Moon", "type": "cat" },
+      { "name": "Rocky", "type": "dog" },
+      { "name": "Luna", "type": "rabbit" }
     ]
   },
   {
@@ -27,10 +23,9 @@
     "phone": "64645252",
     "nextAppointment": "Miércoles 12 de febrero",
     "pets": [
-      {
-        "name": "Ponky",
-        "type": "dog"
-      }
+      { "name": "Ponky", "type": "dog" },
+      { "name": "Milo", "type": "cat" },
+      { "name": "Nemo", "type": "fish" }
     ]
   },
   {
@@ -42,10 +37,9 @@
     "phone": "878763464",
     "nextAppointment": "Miércoles 12 de febrero",
     "pets": [
-      {
-        "name": "Max",
-        "type": "dog"
-      }
+      { "name": "Max", "type": "dog" },
+      { "name": "Bella", "type": "cat" },
+      { "name": "Kiwi", "type": "bird" }
     ]
   },
   {
@@ -57,14 +51,10 @@
     "phone": "878763464",
     "nextAppointment": "Viernes 26 de febrero",
     "pets": [
-      {
-        "name": "Tobby",
-        "type": "dog"
-      },
-      {
-        "name": "Michie",
-        "type": "cat"
-      }
+      { "name": "Tobby", "type": "dog" },
+      { "name": "Michie", "type": "cat" },
+      { "name": "Thor", "type": "dog" },
+      { "name": "Nina", "type": "hamster" }
     ]
   },
   {
@@ -76,10 +66,10 @@
     "phone": "76723039",
     "nextAppointment": "Martes 24 de febrero",
     "pets": [
-      {
-        "name": "Vela",
-        "type": "dog"
-      }
+      { "name": "Vela", "type": "dog" },
+      { "name": "Simba", "type": "cat" },
+      { "name": "Coco", "type": "parrot" }
     ]
   }
 ]
+

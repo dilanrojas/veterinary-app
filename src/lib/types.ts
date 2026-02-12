@@ -2,7 +2,11 @@ export type Pet = {
   id: number;
   name: string;
   type: string;
-}
+  breed: string;
+  age: number;
+  weight: number;
+  imageUrl: string;
+};
 
 export type Client = {
   id: number;
@@ -13,4 +17,4 @@ export type Client = {
   phone: string;
   nextAppointment: string;
   pets: Pet[];
-}
+};

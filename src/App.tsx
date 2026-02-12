@@ -15,8 +15,9 @@ export default function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/petlist" element={<PetList />} />
           <Route path="/clientprofile" element={<ClientProfile />} />
-          <Route path="/petprofile" element={<PetProfile />} />
+          <Route path="/petprofile/:id" element={<PetProfile />} />
           <Route path="/" element={<Welcome />} />
+
         </Route>
 
         <Route path="/authlogin" element={<AuthLogin />} />

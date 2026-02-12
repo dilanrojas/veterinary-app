@@ -45,7 +45,7 @@ export default function PetProfile() {
                   <strong>Age:</strong> {pet.age} {pet.age === 1 ? 'year' : 'years'}
                 </p>
                 <p className="flex justify-between text-sm">
-                  <strong>Weight:</strong> {pet.weight} kg
+                  <strong>Weight:</strong> {pet.weight}
                 </p>
                 <p className="flex justify-between text-sm border-t pt-2 mt-2 font-bold text-emerald-600">
                   <span>Next Appt:</span> {user.nextAppointment}

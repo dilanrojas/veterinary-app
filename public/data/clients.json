@@ -129,7 +129,7 @@
     "password": "brian123",
     "email": "brianporras@gmail.com",
     "phone": "878763464",
-    "nextAppointment": "Viernes 26 de febrero",
+    "nextAppointment": "Viernes 26 de marzo",
     "pets": [
       {
         "id": 401,
@@ -176,7 +176,7 @@
     "password": "jonathan123",
     "email": "jonathanruiz@gmail.com",
     "phone": "76723039",
-    "nextAppointment": "Martes 24 de febrero",
+    "nextAppointment": "Martes 24 de abril",
     "pets": [
       {
         "id": 501,

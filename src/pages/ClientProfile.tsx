@@ -39,7 +39,6 @@ export default function SettingsPage() {
     };
 
     setUser(updatedUser);
-    alert("Cambios guardados correctamente en LocalStorage");
   };
 
   return (

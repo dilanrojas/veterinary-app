@@ -7,6 +7,7 @@ import PetDetails from "./pages/PetDetails";
 import AuthLogin from "./pages/AuthLogin";
 import RootLayout from "./layouts/RootLayout";
 import ProtectedRoute from "./components/ProtectedRoute";
+import NotFound from "./pages/NotFound";
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
           </Route>
 
           <Route path="/" element={<Welcome />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
 
         <Route path="/authlogin" element={<AuthLogin />} />

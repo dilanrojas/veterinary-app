@@ -51,7 +51,6 @@ export default function AddPetForm() {
       {/* Modal Container */}
       <div className="bg-white dark:bg-slate-900 rounded-xl shadow-xl w-full max-w-lg flex flex-col max-h-[90vh]">
 
-        {/* Header - Fixed at top of modal */}
         <header className="flex items-center justify-between w-full p-5 md:px-10 border-b dark:border-slate-800">
           <h1 className="text-xl font-bold dark:text-white">Adding Pet</h1>
           <button
@@ -62,7 +61,6 @@ export default function AddPetForm() {
           </button>
         </header>
 
-        {/* Scrollable Form Body */}
         <form
           className="flex-1 overflow-y-auto p-5 md:px-10"
           onSubmit={(e) => {

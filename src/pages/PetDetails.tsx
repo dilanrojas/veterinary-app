@@ -42,11 +42,11 @@ export default function PetDetails() {
   }
 
   if (!user) {
-    return <p>No user</p>
+    return;
   }
 
   if (!pet) {
-    return <p>No pet with such id</p>
+    return;
   }
 
   const handleRemove = () => {

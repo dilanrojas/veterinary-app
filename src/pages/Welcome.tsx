@@ -1,4 +1,9 @@
+import { Link } from "react-router-dom";
+import { UseUser } from "../contexts/UserContext";
+
 export default function Welcome() {
+  const { user } = UseUser();
+
   return (
     <main className="flex-grow">
       {/* HeroSection */}
@@ -19,15 +24,19 @@ export default function Welcome() {
               </p>
             </div>
             <div className="flex flex-wrap gap-4">
-              <button className="flex items-center gap-2 rounded-xl bg-primary px-8 py-4 text-base font-bold text-background-dark shadow-lg shadow-primary/20 hover:scale-105 transition-transform">
-                <span className="material-symbols-outlined">
-                  calendar_today
-                </span>
-                Book Appointment
-              </button>
-              <button className="flex items-center gap-2 rounded-xl border-2 border-[#dbe6df] px-8 py-4 text-base font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
-                View Services
-              </button>
+              <Link to={user ? '/home' : '/authlogin'}>
+                <button className="flex items-center gap-2 rounded-xl bg-primary px-8 py-4 text-base font-bold text-background-dark shadow-lg shadow-primary/20 hover:scale-105 transition-transform">
+                  <span className="material-symbols-outlined">
+                    calendar_today
+                  </span>
+                  Book Appointment
+                </button>
+              </Link>
+              <a href="/#services">
+                <button className="flex items-center gap-2 rounded-xl border-2 border-[#dbe6df] px-8 py-4 text-base font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                  View Services
+                </button>
+              </a>
             </div>
           </div>
           <div className="relative">

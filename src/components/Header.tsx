@@ -36,7 +36,7 @@ const Header = () => {
             <NavLink
               to="/petlist"
               className={({ isActive }) =>
-                `text-sm font-semibold transition-colors ${isActive ? "text-primary" : "hover:text-primary"
+                `text-sm font-semibold transition-colors ${isActive ? "text-primary" : "text-muted-foreground hover:text-primary"
                 }`
               }
             >

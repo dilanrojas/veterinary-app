@@ -1,8 +1,14 @@
 import { UseUser } from "../contexts/UserContext";
-import { Link } from "react-router-dom";
+import TileCard from "../components/TitleCard";
+import NewsItem from "../components/NewsItem";
 
-const Home = () => {
+export default function Home() {
   const { user } = UseUser();
+
+  if (!user) {
+    return;
+  }
+
   return (
     <div className="bg-background-light dark:bg-background-dark text-[#111813] dark:text-white">
       <div className="flex">
@@ -13,7 +19,7 @@ const Home = () => {
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
               <div className="flex flex-col gap-1">
                 <p className="text-[#111813] dark:text-white text-4xl font-extrabold leading-tight tracking-tight">
-                  Welcome back, {user?.fullname || "user"}!
+                  Welcome back, {user.fullname || "user"}!
                 </p>
                 <p className="text-[#61896f] text-lg font-medium">
                   Your pets are in good hands today.
@@ -33,7 +39,7 @@ const Home = () => {
                   </span>
                 </div>
                 <div className="flex items-end gap-2">
-                  <p className="text-4xl font-black">{user?.pets.length}</p>
+                  <p className="text-4xl font-black">{user.pets.length}</p>
                 </div>
                 <p className="text-[#61896f] text-xs font-normal">
                   Registered in your accounts
@@ -50,9 +56,9 @@ const Home = () => {
                   </span>
                 </div>
                 <div className="flex flex-col">
-                  <p className="text-2xl font-bold">{user?.nextAppointment}</p>
+                  <p className="text-2xl font-bold">{user.nextAppointment}</p>
                   <p className="text-sm font-medium text-[#111813] dark:text-gray-300">
-                    {user?.pets[0].name} - Annual review
+                    {user.pets[0].name} - Annual review
                   </p>
                 </div>
               </div>
@@ -67,7 +73,7 @@ const Home = () => {
                   </span>
                 </div>
                 <p className="text-lg font-bold">
-                  {user?.pets[1].name}'s Vaccination
+                  {user.pets[1].name}'s Vaccination
                 </p>
                 <p className="text-sm text-[#61896f]">
                   Due in 12 days. We recommend booking a slot this week.
@@ -151,54 +157,3 @@ const Home = () => {
     </div>
   );
 };
-
-interface TileCardProps {
-  title: string;
-  description: string;
-  buttonText: string;
-  imgUrl: string;
-  linkTo: string;
-}
-const TileCard = ({
-  title,
-  description,
-  buttonText,
-  imgUrl,
-  linkTo,
-}: TileCardProps) => (
-  <div className="group relative flex flex-col gap-4 rounded-2xl bg-white dark:bg-[#1a2e20] border border-[#dbe6df] dark:border-[#2a3f31] p-6 overflow-hidden transition-all hover:shadow-xl hover:-translate-y-1">
-    <div
-      className="w-full h-40 bg-center bg-cover rounded-xl mb-2"
-      style={{ backgroundImage: `url('${imgUrl}')` }}
-    ></div>
-    <div>
-      <h3 className="text-xl font-bold mb-1 group-hover:text-primary transition-colors">
-        {title}
-      </h3>
-      <p className="text-[#61896f] text-sm leading-relaxed mb-4">
-        {description}
-      </p>
-      <Link to={linkTo}>
-        <button className="w-full py-2.5 px-4 bg-[#f0f4f2] dark:bg-[#2a3f31] rounded-lg text-sm font-bold transition-colors hover:bg-primary hover:text-[#111813]">
-          {buttonText}
-        </button>
-      </Link>
-    </div>
-  </div>
-);
-
-interface NewsItemProps {
-  date: string;
-  title: string;
-  desc: string;
-}
-
-const NewsItem = ({ date, title, desc }: NewsItemProps) => (
-  <div className="border-b border-[#f0f4f2] dark:border-[#2a3f31] pb-3 last:border-0 last:pb-0">
-    <p className="text-xs font-bold text-primary mb-1 uppercase">{date}</p>
-    <p className="text-sm font-bold mb-1">{title}</p>
-    <p className="text-xs text-[#61896f]">{desc}</p>
-  </div>
-);
-
-export default Home;

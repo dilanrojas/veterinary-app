@@ -225,7 +225,7 @@ export default function AuthLogin() {
                   onChange={(e) => setPassword(e.target.value)}
                 />
                 <span
-                  className="flex items-center h-full material-symbols-outlined absolute right-3 -translate-y-1/2 text-slate-400 cursor-pointer text-xl"
+                  className="flex items-center h-full material-symbols-outlined absolute right-3 top-0 text-slate-400 cursor-pointer text-xl"
                   onClick={() => setShowPassword(!showPassword)}
                 >
                   {showPassword ? "visibility_off" : "visibility"}

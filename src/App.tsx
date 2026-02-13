@@ -3,19 +3,23 @@ import Welcome from "./pages/Welcome";
 import Home from "./pages/Home";
 import ClientProfile from "./pages/ClientProfile";
 import PetList from "./pages/PetList";
-import PetProfile from "./pages/PetProfile";
+import PetDetails from "./pages/PetDetails";
 import AuthLogin from "./pages/AuthLogin";
 import RootLayout from "./layouts/RootLayout";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 export default function App() {
   return (
     <>
       <Routes>
         <Route element={<RootLayout />}>
-          <Route path="/home" element={<Home />} />
-          <Route path="/petlist" element={<PetList />} />
-          <Route path="/clientprofile" element={<ClientProfile />} />
-          <Route path="/petprofile/:id" element={<PetProfile />} />
+          <Route element={<ProtectedRoute />}>
+            <Route path="/home" element={<Home />} />
+            <Route path="/petlist" element={<PetList />} />
+            <Route path="/clientprofile" element={<ClientProfile />} />
+            <Route path="/petlist/:id" element={<PetDetails />} />
+          </Route>
+
           <Route path="/" element={<Welcome />} />
         </Route>
 

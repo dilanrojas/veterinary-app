@@ -1,18 +1,72 @@
-import { useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import { UseUser } from "../contexts/UserContext";
+import { MinusCircle } from "../assets/icons";
+import { type Pet } from "../lib/types";
+import { getPetById } from "../services/clients.service";
 
-export default function PetProfile() {
+export default function PetDetails() {
   const { id } = useParams<{ id: string }>();
-  const { user } = UseUser();
+  const { user, setUser } = UseUser();
   const [tab, setTab] = useState("Summary");
+  const [pet, setPet] = useState<Pet | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
+  const navigate = useNavigate();
 
-  const pet = user?.pets?.find((p) => p.id === Number(id));
+  useEffect(() => {
+    const petId = id ? Number(id) : NaN;
 
-  if (!user || !pet) {
-    return <div className="p-10 text-center dark:text-white">Loading...</div>;
+    if (isNaN(petId)) {
+      setLoading(false);
+      return;
+    }
+
+    getPetById(petId).then((foundPet) => {
+      if (foundPet) {
+        setPet(foundPet);
+        setLoading(false);
+      } else if (user) {
+        const localPet = user.pets.find((p) => p.id === petId);
+        setPet(localPet || null);
+        setLoading(false);
+      } else {
+        setLoading(false);
+      }
+    });
+  }, [id, user]);
+
+  if (loading) {
+    <div className="min-h-dvh flex items-center justify-center">
+      <p>Loading...</p>;
+    </div>
   }
 
+  if (!user) {
+    return <p>No user</p>
+  }
+
+  if (!pet) {
+    return <p>No pet with such id</p>
+  }
+
+  const handleRemove = () => {
+    const confirmation = confirm(`Do you want to remove ${pet.name} from the list?`);
+
+    if (!confirmation) return;
+
+    if (!pet) return;
+
+    setUser((prev) => {
+      if (!prev) return prev;
+
+      return {
+        ...prev,
+        pets: prev.pets.filter((p) => p.id !== pet.id),
+      };
+    });
+
+    navigate("/petlist");
+  };
   return (
     <div className="bg-gray-50 dark:bg-[#0a0f0b] min-h-screen text-[#111813] dark:text-white p-4 md:p-10 font-sans">
       <div className="max-w-5xl mx-auto">
@@ -25,7 +79,7 @@ export default function PetProfile() {
           </Link>
           <h1 className="text-3xl font-black">
             {pet.name}{" "}
-            <span className="text-emerald-500 text-lg">({pet.type})</span>
+            <span className="text-emerald-500 text-lg capitalize">({pet.type})</span>
           </h1>
         </div>
 
@@ -60,15 +114,21 @@ export default function PetProfile() {
                 <button
                   key={t}
                   onClick={() => setTab(t)}
-                  className={`pb-2 px-1 text-sm font-bold transition-all ${
-                    tab === t
-                      ? "border-b-2 border-emerald-500 text-emerald-500"
-                      : "text-gray-400"
-                  }`}
+                  className={`pb-2 px-1 text-sm font-bold transition-all ${tab === t
+                    ? "border-b-2 border-emerald-500 text-emerald-500"
+                    : "text-gray-400"
+                    }`}
                 >
                   {t}
                 </button>
               ))}
+              <button
+                className="text-sm font-bold transition-all pb-2 ml-auto flex items-center gap-x-1 text-red-500 hover:text-red-300"
+                onClick={handleRemove}
+              >
+                <span><MinusCircle size={18} /></span>
+                Remove
+              </button>
             </div>
 
             <div className="bg-white dark:bg-[#152a1c] p-6 rounded-2xl border dark:border-[#2a3a2f] shadow-sm min-h-[300px]">
@@ -76,7 +136,7 @@ export default function PetProfile() {
                 <div className="space-y-6">
                   <div className="bg-emerald-50 dark:bg-emerald-900/10 p-4 rounded-xl border border-emerald-100 dark:border-emerald-800">
                     <p className="font-bold text-emerald-700 dark:text-emerald-400 italic">
-                      "The pet is in excellent physical condition following 
+                      "The pet is in excellent physical condition following
                       the last check-up."
                     </p>
                   </div>
@@ -131,7 +191,7 @@ export default function PetProfile() {
                   <li className="border-l-4 border-emerald-500 pl-4 py-2 bg-emerald-50/30 dark:bg-emerald-900/10 rounded-r-lg">
                     <p className="font-bold">Nutrition Assessment</p>
                     <p className="text-sm text-gray-500 dark:text-gray-400">
-                      November 15 - Weight control and suggested diet 
+                      November 15 - Weight control and suggested diet
                       adjustment.
                     </p>
                   </li>

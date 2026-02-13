@@ -1,56 +1,21 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap');
 
-/* Basic CSS reset */
-:root {
-  /* Colors */
-  --background: #282828;
-  --background-secondary: #383838;
-  --text: #ffffff;
-  --text-secondary: #aaa;
-
-  /* Styling */
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
-  --radius-xl: 30px;
+body {
+  font-family: "Manrope", sans-serif;
 }
 
-* {
-  margin: 0;
-  padding: 0;
+.material-symbols-outlined {
+  font-variation-settings:
+    "FILL" 0,
+    "wght" 400,
+    "GRAD" 0,
+    "opsz" 24;
 }
 
-*,
-*::after,
-*::before {
-  box-sizing: border-box;
+html {
+  scrollbar-gutter: stable;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-ul,
-ol {
-  list-style: none;
-}
-
-svg,
-picture,
-img {
-  display: block;
-}
-
-/* Utility classes */
-.wrapper {
-  --width: 1440px;
-  --padding: 2rem;
-
-  width: min(var(--width), 100% - var(--padding) * 2);
-  margin-inline: auto;
-}
-
-.flow>*+* {
-  margin-top: var(--flow-space, 1rem);
+html:has(.no-scroll) {
+  overflow: hidden;
 }

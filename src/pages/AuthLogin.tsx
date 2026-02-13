@@ -26,7 +26,12 @@ export default function AuthLogin() {
   }, []);
 
   if (loading) {
-    return <p>Loading...</p>;
+
+    return (
+      <div className="min-h-dvh flex items-center justify-center">
+        <p>Loading...</p>;
+      </div>
+    )
   }
 
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -80,10 +85,10 @@ export default function AuthLogin() {
   };
 
   return (
-    <div className="flex-1 flex flex-col md:flex-row w-full max-w-[1440px] mx-auto overflow-hidden min-h-screen">
+    <div className="flex-1 flex flex-col md:flex-row w-full max-w-[1440px] mx-auto overflow-hidden">
       <div className="hidden md:flex flex-1 relative flex-col items-center justify-center p-12 overflow-hidden bg-background-light dark:bg-slate-900/50">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent opacity-60"></div>
-        <div className="relative z-10 text-center max-w-md">
+        <div className="relative mb-auto z-10 text-center max-w-md">
           <div className="mb-10 flex justify-center">
             <div
               className="w-full max-w-[400px] h-[400px] bg-center bg-no-repeat bg-contain rounded-2xl"
@@ -105,11 +110,11 @@ export default function AuthLogin() {
         </div>
       </div>
 
-      <div className="flex-1 flex items-center justify-center p-6 sm:p-12 bg-white dark:bg-background-dark">
+      <div className="flex-1 flex items-start justify-center p-6 sm:p-12 bg-white dark:bg-background-dark">
         <div className="w-full max-w-[480px] flex flex-col gap-8">
           <div className="flex flex-col gap-2 text-left">
             <h2 className="text-[#111813] dark:text-white tracking-light text-[32px] font-bold leading-tight">
-              Welcome Back
+              {isSignup ? 'Create your account' : 'Welcome back'}
             </h2>
             <p className="text-[#111813]/60 dark:text-white/60 text-base font-normal leading-normal">
               Enter your details to manage your pet's health records.
@@ -208,14 +213,6 @@ export default function AuthLogin() {
                 <label className="text-sm font-bold text-[#111813] dark:text-white">
                   Password
                 </label>
-                {!isSignup && (
-                  <Link
-                    className="text-xs font-semibold text-primary hover:underline"
-                    to="/forgot-password"
-                  >
-                    Forgot?
-                  </Link>
-                )}
               </div>
               <div className="relative">
                 <input
@@ -236,7 +233,7 @@ export default function AuthLogin() {
               </div>
             </div>
 
-            {error && <span className='text-red-500'>Error while trying to {isSignup ? 'create account' : 'login'}</span>}
+            {error && <span className='text-red-500 text-sm'>Error while trying to {isSignup ? 'create account' : 'login'}</span>}
 
             <button
               className="flex w-full items-center justify-center rounded-xl h-12 px-5 bg-primary text-[#111813] text-base font-bold leading-normal tracking-[0.015em] hover:bg-primary/80 shadow-lg shadow-primary/20 transition-all mt-4"
@@ -250,14 +247,14 @@ export default function AuthLogin() {
             By continuing, you agree to our{" "}
             <Link
               className="text-primary hover:underline font-medium"
-              to="/terms"
+              to="#"
             >
               Terms of Service
             </Link>{" "}
             and{" "}
             <Link
               className="text-primary hover:underline font-medium"
-              to="/privacy"
+              to="#"
             >
               Privacy Policy
             </Link>

@@ -21,7 +21,7 @@ export default function PetList() {
             <div className="layout-content-container flex flex-col w-full max-w-[1200px] flex-1 px-4 md:px-10">
 
               <div className="flex flex-wrap items-end justify-between gap-4 p-4 mb-4">
-                <header className="flex w-full gap-2 justify-between items-center">
+                <header className="flex flex-col w-full gap-4 sm:flex-row sm:items-center sm:justify-between">
                   <div>
                     <h1 className="text-[#111813] dark:text-white text-4xl font-black leading-tight tracking-tight mb-2">
                       My Pets
@@ -30,7 +30,7 @@ export default function PetList() {
                       Hello, {user.fullname}! You have {user.pets?.length} registered {user.pets?.length === 1 ? 'pet' : 'pets'}.
                     </p>
                   </div>
-                  <button className="flex items-center h-fit py-3.5 gap-x-3 rounded-lg bg-primary px-5 text-sm font-bold text-background-dark hover:brightness-110 transition-all" onClick={() => setAdding(true)}>
+                  <button className="flex items-center w-fit h-fit py-3.5 gap-x-3 rounded-lg bg-primary px-5 text-sm font-bold text-background-dark hover:brightness-110 transition-all" onClick={() => setAdding(true)}>
                     <span>{<Plus size={20} />}</span>
                     Add pet
                   </button>

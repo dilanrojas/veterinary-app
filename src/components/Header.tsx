@@ -46,43 +46,46 @@ const Header = () => {
             <AuthButton />
           </div>
 
-          {user && (
-            <button
-              onClick={toggleMenu}
-              className="md:hidden flex items-center justify-center px-2 py-1 rounded-lg hover:bg-gray-100"
-            >
-              <span className="material-symbols-outlined text-2xl">
-                {isMenuOpen ? "close" : "menu"}
-              </span>
-            </button>
-          )}
+          <button
+            onClick={toggleMenu}
+            className="md:hidden flex items-center justify-center px-2 py-1 rounded-lg hover:bg-gray-100"
+          >
+            <span className="material-symbols-outlined text-2xl">
+              {isMenuOpen ? "close" : "menu"}
+            </span>
+          </button>
         </div>
       </div>
 
-      {user && isMenuOpen && (
+      {isMenuOpen && (
         <nav className="md:hidden border-t border-[#dbe6df] bg-white fixed w-full px-6 py-8 flex flex-col gap-6 duration-300">
-          <NavLink
-            end
-            to="/home"
-            onClick={() => setIsMenuOpen(false)}
-            className={navLinkClass}
-          >
-            Home
-          </NavLink>
-          <NavLink
-            to="/petlist"
-            onClick={() => setIsMenuOpen(false)}
-            className={navLinkClass}
-          >
-            Pet List
-          </NavLink>
-          <NavLink
-            to="/clientprofile"
-            onClick={() => setIsMenuOpen(false)}
-            className={navLinkClass}
-          >
-            Client Profile
-          </NavLink>
+          {user && (
+            <>
+              <NavLink
+                end
+                to="/home"
+                onClick={() => setIsMenuOpen(false)}
+                className={navLinkClass}
+              >
+                Home
+              </NavLink>
+              <NavLink
+                to="/petlist"
+                onClick={() => setIsMenuOpen(false)}
+                className={navLinkClass}
+              >
+                Pet List
+              </NavLink>
+              <NavLink
+                to="/clientprofile"
+                onClick={() => setIsMenuOpen(false)}
+                className={navLinkClass}
+              >
+                Client Profile
+              </NavLink>
+
+            </>
+          )}
           <AuthButton />
         </nav>
       )}

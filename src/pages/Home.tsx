@@ -56,8 +56,8 @@ export default function Home() {
                   </span>
                 </div>
                 <div className="flex flex-col">
-                  <p className="text-2xl font-bold">{user.nextAppointment}</p>
-                  <p className="text-sm font-medium text-[#111813] dark:text-gray-300">
+                  <p className="text-2xl font-bold mb-3">{user.nextAppointment}</p>
+                  <p className="text-sm font-medium text-[#61896f] dark:text-gray-300">
                     {user.pets[0].name} - Annual review
                   </p>
                 </div>

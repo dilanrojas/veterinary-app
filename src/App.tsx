@@ -3,7 +3,7 @@ import Welcome from "./pages/Welcome";
 import Home from "./pages/Home";
 import ClientProfile from "./pages/ClientProfile";
 import PetList from "./pages/PetList";
-import PetDetails from "./pages/PetDetails";
+import PetDetails from "./pages/PetProfile";
 import AuthLogin from "./pages/AuthLogin";
 import RootLayout from "./layouts/RootLayout";
 import ProtectedRoute from "./components/ProtectedRoute";

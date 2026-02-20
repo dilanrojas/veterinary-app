@@ -26,12 +26,11 @@ export default function AuthLogin() {
   }, []);
 
   if (loading) {
-
     return (
       <div className="min-h-dvh flex items-center justify-center">
         <p>Loading...</p>;
       </div>
-    )
+    );
   }
 
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -88,6 +87,15 @@ export default function AuthLogin() {
     <div className="flex-1 flex flex-col md:flex-row w-full max-w-[1440px] mx-auto overflow-hidden">
       <div className="hidden md:flex flex-1 relative flex-col items-center justify-center p-12 overflow-hidden bg-background-light dark:bg-slate-900/50">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent opacity-60"></div>
+        <button
+          onClick={() => navigate("/")}
+          className="absolute top-4 left-4 w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors z-10 flex items-center justify-center"
+          aria-label="Go back to welcome"
+        >
+          <span className="material-symbols-outlined text-slate-600 dark:text-slate-400">
+            arrow_back
+          </span>
+        </button>
         <div className="relative mb-auto z-10 text-center max-w-md">
           <div className="mb-10 flex justify-center">
             <div
@@ -114,7 +122,7 @@ export default function AuthLogin() {
         <div className="w-full max-w-[480px] flex flex-col gap-8">
           <div className="flex flex-col gap-2 text-left">
             <h2 className="text-[#111813] dark:text-white tracking-light text-[32px] font-bold leading-tight">
-              {isSignup ? 'Create your account' : 'Welcome back'}
+              {isSignup ? "Create your account" : "Welcome back"}
             </h2>
             <p className="text-[#111813]/60 dark:text-white/60 text-base font-normal leading-normal">
               Enter your details to manage your pet's health records.
@@ -123,20 +131,30 @@ export default function AuthLogin() {
 
           <div className="flex h-12 items-center justify-center rounded-xl bg-slate-100 dark:bg-slate-800 p-1">
             <button
-              className={`flex h-full grow items-center justify-center rounded-lg px-2 text-sm font-bold leading-normal transition-all ${!isSignup
-                ? "bg-white dark:bg-slate-700 shadow-sm text-[#111813] dark:text-white"
-                : "text-slate-500 dark:text-slate-400 hover:text-[#111813] dark:hover:text-white"
-                }`}
-              onClick={() => { setIsSignup(false); setError(false) }}
+              data-cy="login-button"
+              className={`flex h-full grow items-center justify-center rounded-lg px-2 text-sm font-bold leading-normal transition-all ${
+                !isSignup
+                  ? "bg-white dark:bg-slate-700 shadow-sm text-[#111813] dark:text-white"
+                  : "text-slate-500 dark:text-slate-400 hover:text-[#111813] dark:hover:text-white"
+              }`}
+              onClick={() => {
+                setIsSignup(false);
+                setError(false);
+              }}
             >
               Login
             </button>
             <button
-              className={`flex h-full grow items-center justify-center rounded-lg px-2 text-sm font-medium leading-normal transition-all ${isSignup
-                ? "bg-white dark:bg-slate-700 shadow-sm text-[#111813] dark:text-white"
-                : "text-slate-500 dark:text-slate-400 hover:text-[#111813] dark:hover:text-white"
-                }`}
-              onClick={() => { setIsSignup(true); setError(false) }}
+              data-cy="signup-button"
+              className={`flex h-full grow items-center justify-center rounded-lg px-2 text-sm font-medium leading-normal transition-all ${
+                isSignup
+                  ? "bg-white dark:bg-slate-700 shadow-sm text-[#111813] dark:text-white"
+                  : "text-slate-500 dark:text-slate-400 hover:text-[#111813] dark:hover:text-white"
+              }`}
+              onClick={() => {
+                setIsSignup(true);
+                setError(false);
+              }}
             >
               Sign Up
             </button>
@@ -147,7 +165,7 @@ export default function AuthLogin() {
             action={isSignup ? handleSignup : handleLogin}
           >
             {isSignup && (
-              <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-4" data-cy="signup-form">
                 <div className="flex flex-col gap-1">
                   <label className="text-sm font-bold text-[#111813] dark:text-white">
                     Full Name
@@ -193,11 +211,12 @@ export default function AuthLogin() {
               </div>
             )}
 
-            <div className="flex flex-col gap-1">
+            <div className="flex flex-col gap-1" data-cy="login-form">
               <label className="text-sm font-bold text-[#111813] dark:text-white">
                 Email Address
               </label>
               <input
+                data-cy="email-input"
                 className="h-12 w-full rounded-xl border border-slate-200 dark:border-slate-700 dark:bg-slate-800 dark:text-white focus:ring-primary focus:border-primary transition-all px-4"
                 placeholder="email@example.com"
                 type="email"
@@ -216,6 +235,7 @@ export default function AuthLogin() {
               </div>
               <div className="relative">
                 <input
+                  data-cy="password-input"
                   className="h-12 w-full rounded-xl border border-slate-200 dark:border-slate-700 dark:bg-slate-800 dark:text-white focus:ring-primary focus:border-primary transition-all pr-10 px-4"
                   placeholder="••••••••"
                   type={showPassword ? "text" : "password"}
@@ -233,9 +253,14 @@ export default function AuthLogin() {
               </div>
             </div>
 
-            {error && <span className='text-red-500 text-sm'>Error while trying to {isSignup ? 'create account' : 'login'}</span>}
+            {error && (
+              <span className="text-red-500 text-sm" data-cy="error-message">
+                Error while trying to {isSignup ? "create account" : "login"}
+              </span>
+            )}
 
             <button
+              data-cy="loginUser-button"
               className="flex w-full items-center justify-center rounded-xl h-12 px-5 bg-primary text-[#111813] text-base font-bold leading-normal tracking-[0.015em] hover:bg-primary/80 shadow-lg shadow-primary/20 transition-all mt-4"
               type="submit"
             >
@@ -245,17 +270,11 @@ export default function AuthLogin() {
 
           <p className="text-center text-xs text-slate-500 dark:text-slate-400">
             By continuing, you agree to our{" "}
-            <Link
-              className="text-primary hover:underline font-medium"
-              to="#"
-            >
+            <Link className="text-primary hover:underline font-medium" to="#">
               Terms of Service
             </Link>{" "}
             and{" "}
-            <Link
-              className="text-primary hover:underline font-medium"
-              to="#"
-            >
+            <Link className="text-primary hover:underline font-medium" to="#">
               Privacy Policy
             </Link>
             .
@@ -264,4 +283,4 @@ export default function AuthLogin() {
       </div>
     </div>
   );
-};
+}

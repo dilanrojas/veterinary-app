@@ -6,6 +6,7 @@ import { type Client } from "../lib/types";
 export default function SettingsPage() {
   const { user, setUser } = UseUser();
   const [saved, setSaved] = useState<boolean>(false);
+  const [error, setError] = useState<string>("");
 
   const [formData, setFormData] = useState({
     fullname: "",
@@ -30,10 +31,30 @@ export default function SettingsPage() {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+    setSaved(false);
+    setError("");
   };
 
   const handleSave = () => {
     if (!user) return;
+
+    // Validar que no estén vacíos
+    if (
+      !formData.fullname.trim() ||
+      !formData.username.trim() ||
+      !formData.email.trim() ||
+      !formData.phone.trim() ||
+      !formData.password.trim()
+    ) {
+      setError("Todos los campos son obligatorios.");
+      return;
+    }
+
+    // Validar email
+    if (!formData.email.includes("@gmail.com")) {
+      setError('El email debe contener "@gmail.com".');
+      return;
+    }
 
     const updatedUser: Client = {
       ...user,
@@ -42,6 +63,7 @@ export default function SettingsPage() {
 
     setUser(updatedUser);
     setSaved(true);
+    setError("");
   };
 
   return (
@@ -59,11 +81,20 @@ export default function SettingsPage() {
             </div>
             <div className="relative">
               <button
+                data-cy="save-button"
                 onClick={handleSave}
                 className="bg-[#4ade80] flex items-center justify-center text-[#111813] px-6 py-3 rounded-lg font-bold text-sm shadow-sm hover:opacity-90 transition-opacity h-[44px] w-[160px]"
               >
-                {saved ? <Check size={18} /> : 'Save changes'}
+                {saved ? <Check size={18} /> : "Save changes"}
               </button>
+              {error && (
+                <p
+                  className="text-red-500 text-sm mt-2"
+                  data-cy="error-message"
+                >
+                  {error}
+                </p>
+              )}
             </div>
           </div>
 
@@ -82,6 +113,7 @@ export default function SettingsPage() {
                     Full Name
                   </span>
                   <input
+                    data-cy="client-name"
                     name="fullname"
                     type="text"
                     value={formData.fullname}
@@ -91,10 +123,9 @@ export default function SettingsPage() {
                 </div>
 
                 <div className="flex flex-col gap-2">
-                  <span className="text-sm font-bold opacity-80">
-                    Username
-                  </span>
+                  <span className="text-sm font-bold opacity-80">Username</span>
                   <input
+                    data-cy="client-username"
                     name="username"
                     type="text"
                     value={formData.username}
@@ -104,10 +135,9 @@ export default function SettingsPage() {
                 </div>
 
                 <div className="flex flex-col gap-2">
-                  <span className="text-sm font-bold opacity-80">
-                    Email
-                  </span>
+                  <span className="text-sm font-bold opacity-80">Email</span>
                   <input
+                    data-cy="client-email"
                     name="email"
                     type="email"
                     value={formData.email}
@@ -119,6 +149,7 @@ export default function SettingsPage() {
                 <div className="flex flex-col gap-2">
                   <span className="text-sm font-bold opacity-80">Phone</span>
                   <input
+                    data-cy="client-phone"
                     name="phone"
                     type="tel"
                     value={formData.phone}
@@ -128,10 +159,9 @@ export default function SettingsPage() {
                 </div>
 
                 <div className="flex flex-col gap-2 md:col-span-2">
-                  <span className="text-sm font-bold opacity-80">
-                    Password
-                  </span>
+                  <span className="text-sm font-bold opacity-80">Password</span>
                   <input
+                    data-cy="client-password"
                     name="password"
                     type="password"
                     value={formData.password}

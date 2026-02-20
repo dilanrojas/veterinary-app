@@ -10,7 +10,10 @@ export default function Home() {
   }
 
   return (
-    <div className="bg-background-light dark:bg-background-dark text-[#111813] dark:text-white">
+    <div
+      className="bg-background-light dark:bg-background-dark text-[#111813] dark:text-white"
+      data-cy="home-page"
+    >
       <div className="flex">
         {/* Main Content */}
         <section className="flex-1 flex flex-col overflow-y-auto">
@@ -18,7 +21,10 @@ export default function Home() {
             {/* Page Heading */}
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
               <div className="flex flex-col gap-1">
-                <p className="text-[#111813] dark:text-white text-4xl font-extrabold leading-tight tracking-tight">
+                <p
+                  className="text-[#111813] dark:text-white text-4xl font-extrabold leading-tight tracking-tight"
+                  data-cy="welcome-message"
+                >
                   Welcome back, {user.fullname || "user"}!
                 </p>
                 <p className="text-[#61896f] text-lg font-medium">
@@ -38,7 +44,10 @@ export default function Home() {
                     pets
                   </span>
                 </div>
-                <div className="flex items-end gap-2">
+                <div
+                  className="flex items-end gap-2"
+                  data-cy="total-pets-count"
+                >
                   <p className="text-4xl font-black">{user.pets.length}</p>
                 </div>
                 <p className="text-[#61896f] text-xs font-normal">
@@ -56,7 +65,9 @@ export default function Home() {
                   </span>
                 </div>
                 <div className="flex flex-col">
-                  <p className="text-2xl font-bold mb-3">{user.nextAppointment}</p>
+                  <p className="text-2xl font-bold mb-3">
+                    {user.nextAppointment}
+                  </p>
                   <p className="text-sm font-medium text-[#61896f] dark:text-gray-300">
                     {user.pets[0].name} - Annual review
                   </p>
@@ -85,6 +96,7 @@ export default function Home() {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <TileCard
+                  dataCy="my-pets-card"
                   linkTo="/petlist"
                   title="My Pets"
                   description="View medical history, track weight, and update dietary preferences for all your companions."
@@ -92,6 +104,7 @@ export default function Home() {
                   imgUrl="https://lh3.googleusercontent.com/aida-public/AB6AXuCNLenHpfJoI6UVzbNIfMDO9C7f88YNACVQSx3EYgoobgp-OKab_jYx2v3hogVTh0kuBHRWDInbI6vE26xWpyRft5EFQt39QJkyT7pGKHPOGFvgL2OeJBLRgTm8eHm8rzlNCSjpNV5-aVHtxM7l9CwyFzIkWWR4d8uBb071vovmIULgOGBz5zD7ls23VsZp4yq3Sp-fy3UlG5XBzRgIs-9Gp3GoQ5lhpFJ4sITxPV1QgWXLqAVAGBwKVOiYf_OXyQR5PuPQOZJYodA"
                 />
                 <TileCard
+                  dataCy="my-profile-card"
                   linkTo="/clientprofile"
                   title="My Profile"
                   description="Update contact information, payment methods, and notification preferences for your home."
@@ -156,4 +169,4 @@ export default function Home() {
       </div>
     </div>
   );
-};
+}

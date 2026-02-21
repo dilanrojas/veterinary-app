@@ -22,7 +22,7 @@ describe("AuthLogin Component Tests", () => {
     cy.getBySel("signup-form").should("be.visible");
   });
 
-  it("should navigate to home page on successful login ", () => {
+  it("should navigate to home page on successful login", () => {
     cy.getBySel("email-input").type("brianporras@gmail.com");
     cy.getBySel("password-input").type("brian123");
     cy.getBySel("loginUser-button").click();

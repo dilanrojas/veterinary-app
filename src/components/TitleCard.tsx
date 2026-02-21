@@ -6,6 +6,7 @@ interface TileCardProps {
   buttonText: string;
   imgUrl: string;
   linkTo: string;
+  dataCy?: string;
 }
 
 export default function TileCard({
@@ -14,9 +15,13 @@ export default function TileCard({
   buttonText,
   imgUrl,
   linkTo,
+  dataCy,
 }: TileCardProps) {
   return (
-    <div className="group relative flex flex-col gap-4 rounded-2xl bg-white dark:bg-[#1a2e20] border border-[#dbe6df] dark:border-[#2a3f31] p-6 overflow-hidden transition-all hover:shadow-xl hover:-translate-y-1">
+    <div
+      data-cy={dataCy}
+      className="group relative flex flex-col gap-4 rounded-2xl bg-white dark:bg-[#1a2e20] border border-[#dbe6df] dark:border-[#2a3f31] p-6 overflow-hidden transition-all hover:shadow-xl hover:-translate-y-1"
+    >
       <div
         className="w-full bg-center bg-cover rounded-xl mb-2 min-h-60"
         style={{ backgroundImage: `url('${imgUrl}')` }}
@@ -31,11 +36,14 @@ export default function TileCard({
           </p>
         </div>
         <Link to={linkTo}>
-          <button className="w-full py-2.5 px-4 bg-[#f0f4f2] dark:bg-[#2a3f31] rounded-lg text-sm font-bold transition-colors hover:bg-primary hover:text-[#111813] mt-auto">
+          <button
+            data-cy={`${dataCy}-button`}
+            className="w-full py-2.5 px-4 bg-[#f0f4f2] dark:bg-[#2a3f31] rounded-lg text-sm font-bold transition-colors hover:bg-primary hover:text-[#111813] mt-auto"
+          >
             {buttonText}
           </button>
         </Link>
       </div>
     </div>
   );
-};
+}

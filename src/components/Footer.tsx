@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="bg-background-dark py-12 text-white">
+    <footer className="bg-background-dark py-12 text-white" data-cy="footer">
       <div className="mx-auto max-w-[1280px] px-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8 border-b border-white/10 pb-12">
           <div className="flex items-center gap-3">
@@ -16,18 +16,21 @@ const Footer = () => {
 
           <nav className="flex flex-wrap justify-center gap-8">
             <Link
+              data-cy="link-home"
               className="text-sm font-medium text-slate-400 hover:text-primary"
               to="/home"
             >
               Home
             </Link>
             <Link
+              data-cy="link-petlist"
               className="text-sm font-medium text-slate-400 hover:text-primary"
               to="/petlist"
             >
               Pet List
             </Link>
             <Link
+              data-cy="link-clientprofile"
               className="text-sm font-medium text-slate-400 hover:text-primary"
               to="/clientprofile"
             >
@@ -36,7 +39,10 @@ const Footer = () => {
           </nav>
         </div>
 
-        <div className="mt-12 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-slate-500">
+        <div
+          className="mt-12 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-slate-500"
+          data-cy="footer-info"
+        >
           <p>© 2024 Paws &amp; Claws Veterinary Clinic. All rights reserved.</p>
           <p>Designed for the best friends in your life.</p>
         </div>

@@ -9,17 +9,22 @@ export default function PetList() {
   const { adding, setAdding } = UseUI();
 
   if (!user) {
-    return <div className="p-10 text-center dark:text-white">Loading user data...</div>;
+    return (
+      <div className="p-10 text-center dark:text-white">
+        Loading user data...
+      </div>
+    );
   }
 
   return (
-    <div className="bg-background-light dark:bg-background-dark font-display min-h-screen">
+    <div
+      className="bg-background-light dark:bg-background-dark font-display min-h-screen"
+      data-cy="pet-list-page"
+    >
       <div className="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
         <div className="layout-container flex h-full grow flex-col">
-
           <main className="flex flex-1 justify-center py-8">
             <div className="layout-content-container flex flex-col w-full max-w-[1200px] flex-1 px-4 md:px-10">
-
               <div className="flex flex-wrap items-end justify-between gap-4 p-4 mb-4">
                 <header className="flex flex-col w-full gap-4 sm:flex-row sm:items-center sm:justify-between">
                   <div>
@@ -27,10 +32,14 @@ export default function PetList() {
                       My Pets
                     </h1>
                     <p className="text-[#61896f] dark:text-emerald-500/80 text-base font-normal">
-                      Hello, {user.fullname}! You have {user.pets?.length} registered {user.pets?.length === 1 ? 'pet' : 'pets'}.
+                      Hello, {user.fullname}! You have {user.pets?.length}{" "}
+                      registered {user.pets?.length === 1 ? "pet" : "pets"}.
                     </p>
                   </div>
-                  <button className="flex items-center w-fit h-fit py-3.5 gap-x-3 rounded-lg bg-primary px-5 text-sm font-bold text-background-dark hover:brightness-110 transition-all" onClick={() => setAdding(true)}>
+                  <button
+                    className="flex items-center w-fit h-fit py-3.5 gap-x-3 rounded-lg bg-primary px-5 text-sm font-bold text-background-dark hover:brightness-110 transition-all"
+                    onClick={() => setAdding(true)}
+                  >
                     <span>{<Plus size={20} />}</span>
                     Add pet
                   </button>
@@ -41,13 +50,18 @@ export default function PetList() {
               <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 p-4">
                 {user.pets?.map((pet) => (
                   <li key={pet.id}>
-                    <PetCard
-                      {...pet}
-                      nextAppointment={user.nextAppointment}
-                    />
+                    <PetCard {...pet} nextAppointment={user.nextAppointment} />
                   </li>
                 ))}
               </ul>
+              {(!user.pets || user.pets.length === 0) && (
+                <div
+                  data-cy="empty-pet-list"
+                  className="text-center text-gray-500 dark:text-gray-400 p-8"
+                >
+                  No pets registered yet. Click "Add pet" to get started!
+                </div>
+              )}
             </div>
           </main>
         </div>

@@ -10,18 +10,25 @@ const Header = () => {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   const navLinkClass = ({ isActive }: { isActive: boolean }) =>
-    `text-sm font-semibold transition-colors ${isActive ? "text-primary" : "text-muted-foreground hover:text-primary"
+    `text-sm font-semibold transition-colors ${
+      isActive ? "text-primary" : "text-muted-foreground hover:text-primary"
     }`;
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-[#dbe6df] bg-white/80 dark:bg-background-dark/80 backdrop-blur-md">
+    <header
+      className="sticky top-0 z-50 w-full border-b border-[#dbe6df] bg-white/80 dark:bg-background-dark/80 backdrop-blur-md"
+      data-cy="header"
+    >
       <div className="mx-auto flex max-w-[1280px] items-center justify-between px-6 py-4">
         <div className="flex items-center gap-3">
-          <Link to="/" className="flex gap-x-4 items-center">
+          <Link to="/" className="flex gap-x-4 items-center" data-cy="logo">
             <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-background-dark">
               <span className="material-symbols-outlined text-2xl">pets</span>
             </div>
-            <h2 className="text-xl font-extrabold tracking-tight">
+            <h2
+              className="text-xl font-extrabold tracking-tight"
+              data-cy="clinic-name"
+            >
               Paws &amp; Claws
             </h2>
           </Link>
@@ -29,13 +36,26 @@ const Header = () => {
 
         {user && (
           <nav className="hidden md:flex items-center gap-8">
-            <NavLink end to="/home" className={navLinkClass}>
+            <NavLink
+              end
+              to="/home"
+              className={navLinkClass}
+              data-cy="home-link"
+            >
               Home
             </NavLink>
-            <NavLink to="/petlist" className={navLinkClass}>
+            <NavLink
+              to="/petlist"
+              className={navLinkClass}
+              data-cy="petlist-link"
+            >
               Pet List
             </NavLink>
-            <NavLink to="/clientprofile" className={navLinkClass}>
+            <NavLink
+              to="/clientprofile"
+              className={navLinkClass}
+              data-cy="clientprofile-link"
+            >
               Client Profile
             </NavLink>
           </nav>
@@ -83,7 +103,6 @@ const Header = () => {
               >
                 Client Profile
               </NavLink>
-
             </>
           )}
           <AuthButton />

@@ -17,15 +17,21 @@ export default function Welcome() {
               <h1 className="text-4xl font-black leading-tight tracking-tight md:text-6xl">
                 Compassionate Care for Your Best Friends
               </h1>
-              <p className="text-lg text-slate-600 dark:text-slate-300 max-w-xl">
+              <p
+                className="text-lg text-slate-600 dark:text-slate-300 max-w-xl"
+                data-cy="clinic-description"
+              >
                 A comprehensive veterinary management clinic providing
                 world-class care for your pets. Over 15 years of experience with
                 certified specialists dedicated to your pet's wellbeing.
               </p>
             </div>
             <div className="flex flex-wrap gap-4">
-              <Link to={user ? '/home' : '/authlogin'}>
-                <button className="flex items-center gap-2 rounded-xl bg-primary px-8 py-4 text-base font-bold text-background-dark shadow-lg shadow-primary/20 hover:scale-105 transition-transform">
+              <Link to={user ? "/home" : "/authlogin"}>
+                <button
+                  className="flex items-center gap-2 rounded-xl bg-primary px-8 py-4 text-base font-bold text-background-dark shadow-lg shadow-primary/20 hover:scale-105 transition-transform"
+                  data-cy="book-appointment-button"
+                >
                   <span className="material-symbols-outlined">
                     calendar_today
                   </span>
@@ -142,7 +148,11 @@ export default function Welcome() {
       </section>
 
       {/* FeatureSection */}
-      <section className="mx-auto max-w-[1280px] px-6 py-20" id="services">
+      <section
+        className="mx-auto max-w-[1280px] px-6 py-20"
+        id="services"
+        data-cy="services"
+      >
         <div className="mb-12 flex flex-col items-center text-center">
           <h2 className="mb-4 text-3xl font-black md:text-4xl">
             Care Tailored to Your Pet's Needs
@@ -155,7 +165,10 @@ export default function Welcome() {
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {/* Card 1 */}
-          <div className="group flex flex-col gap-4 rounded-2xl border border-[#dbe6df] dark:border-slate-700 bg-white dark:bg-slate-900 p-6 hover:border-primary transition-all hover:shadow-xl">
+          <div
+            className="group flex flex-col gap-4 rounded-2xl border border-[#dbe6df] dark:border-slate-700 bg-white dark:bg-slate-900 p-6 hover:border-primary transition-all hover:shadow-xl"
+            data-cy="service-card"
+          >
             <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-background-dark transition-colors">
               <span className="material-symbols-outlined">
                 medical_services
@@ -170,7 +183,10 @@ export default function Welcome() {
             </div>
           </div>
           {/* Card 2 */}
-          <div className="group flex flex-col gap-4 rounded-2xl border border-[#dbe6df] dark:border-slate-700 bg-white dark:bg-slate-900 p-6 hover:border-primary transition-all hover:shadow-xl">
+          <div
+            className="group flex flex-col gap-4 rounded-2xl border border-[#dbe6df] dark:border-slate-700 bg-white dark:bg-slate-900 p-6 hover:border-primary transition-all hover:shadow-xl"
+            data-cy="service-card"
+          >
             <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-background-dark transition-colors">
               <span className="material-symbols-outlined">e911_emergency</span>
             </div>
@@ -183,7 +199,10 @@ export default function Welcome() {
             </div>
           </div>
           {/* Card 3 */}
-          <div className="group flex flex-col gap-4 rounded-2xl border border-[#dbe6df] dark:border-slate-700 bg-white dark:bg-slate-900 p-6 hover:border-primary transition-all hover:shadow-xl">
+          <div
+            className="group flex flex-col gap-4 rounded-2xl border border-[#dbe6df] dark:border-slate-700 bg-white dark:bg-slate-900 p-6 hover:border-primary transition-all hover:shadow-xl"
+            data-cy="service-card"
+          >
             <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-background-dark transition-colors">
               <span className="material-symbols-outlined">content_cut</span>
             </div>
@@ -196,7 +215,10 @@ export default function Welcome() {
             </div>
           </div>
           {/* Card 4 */}
-          <div className="group flex flex-col gap-4 rounded-2xl border border-[#dbe6df] dark:border-slate-700 bg-white dark:bg-slate-900 p-6 hover:border-primary transition-all hover:shadow-xl">
+          <div
+            className="group flex flex-col gap-4 rounded-2xl border border-[#dbe6df] dark:border-slate-700 bg-white dark:bg-slate-900 p-6 hover:border-primary transition-all hover:shadow-xl"
+            data-cy="service-card"
+          >
             <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-background-dark transition-colors">
               <span className="material-symbols-outlined">vaccines</span>
             </div>
